@@ -3,7 +3,7 @@
   "description":"",
   "require" : {
     "php" : ">=5.3.0",
-    "prodikl/simple-view" : "dev-master"
+    "prodikl/simple-view" : "@dev-master"
   },
   "autoload": {
     "psr-4": {"prodikl\\": "src/prodikl/"}
