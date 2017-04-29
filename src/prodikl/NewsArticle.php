@@ -1,4 +1,7 @@
 <?php
+
+namespace prodikl;
+
 class NewsArticle {
 
 

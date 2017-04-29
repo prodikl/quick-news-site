@@ -1,7 +1,5 @@
 <?php
 require("vendor/autoload.php");
-require("src/NewsArticle.php");
-require("src/Cache.php");
 
 // CORE constants
 define("NEWS_API_KEY", "84313d0f49be45adafac4a4071c6beb4");

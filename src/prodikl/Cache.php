@@ -1,4 +1,7 @@
 <?php
+
+namespace prodikl;
+
 class Cache {
     /**
      * Saves a NewsArticle to the Cache
