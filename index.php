@@ -1,4 +1,5 @@
 <?php
+use prodikl\NewsArticle;
 use prodikl\View;
 
 /**
@@ -13,6 +14,6 @@ require("app.php");
 
 $results = NewsArticle::getArticles();
 
-$view = new View("views/main.php");
+$view = new View("vendor/prodikl/world-today/views/main.php");
 $view->articles = $results;
 $view->render();

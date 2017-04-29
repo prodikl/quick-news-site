@@ -2,6 +2,9 @@
 
 namespace prodikl;
 
+use DOMDocument;
+use SimpleXMLElement;
+
 class NewsArticle {
 
 
@@ -44,9 +47,15 @@ class NewsArticle {
      * @return NewsArticle[]
      */
     private static function getArticlesFromXmlFeedSource($feedUrl) {
-        $feedXMl = simplexml_load_file($feedUrl);
+        $feedXMl = simplexml_load_file($feedUrl, 'SimpleXMLElement', LIBXML_NOCDATA);
         $sourceName = (string) $feedXMl->channel->title;
         $sourceUrl = (string) $feedXMl->channel->link;
+
+        // DIE HERE if issues parsing
+        /*if(!strlen($sourceName)){
+            echo $feedUrl;
+            var_dump($feedXMl); die;
+        }*/
 
         if(is_array($feedXMl->channel->item)) {
             $newsArticles = [];
@@ -74,12 +83,21 @@ class NewsArticle {
         $newsArticle->url = (string) $item->link;
         $newsArticle->author = (string) $item->children("dc", true)->creator;
         $newsArticle->publishedAt = (string) $item->pubDate;
-        $newsArticle->description = strip_tags((string) $item->description);
+        $newsArticle->description = static::getDescription($item);
         $newsArticle->sourceName = $sourceName;
         $newsArticle->sourceUrl = $sourceUrl;
         $newsArticle->urlToImage = static::extractImageUrlFromItem($item);
 
         return $newsArticle;
+    }
+
+    /**
+     * @param $item     SimpleXMLElement
+     * @return string                           The tidied up description.
+     */
+    protected static function getDescription($item){
+        $fullDescription = strip_tags((string) $item->description);
+        return (strlen($fullDescription) > MAX_DESC_LENGTH) ? substr($fullDescription, 0, MAX_DESC_LENGTH) . "..." : $fullDescription;
     }
 
     /**

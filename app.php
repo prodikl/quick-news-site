@@ -4,6 +4,7 @@ require("vendor/autoload.php");
 // CORE constants
 define("NEWS_API_KEY", "84313d0f49be45adafac4a4071c6beb4");
 define("DATA_DIR", __DIR__ . "/data/");
+define("MAX_DESC_LENGTH", 1000);
 
 // SITE constants
 define("NUM_ARTICLES_PER_PAGE", 20);
