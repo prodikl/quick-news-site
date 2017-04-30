@@ -39,6 +39,8 @@ define("GOOGLE_ADSENSE", '
 // NEWS API settings
 define("USE_NEWS_API", true);
 define("CATEGORY", "technology");
+// newsapi ids in ID|TITLE|URL format. Each source should be then seperated by a comma
+define("NEWS_API_IDS", "mtv-news|MTV News|http://www.mtv.com/news");
 
 // XML Feed settings
 define("USE_XML_FEEDS", false);

@@ -146,15 +146,28 @@ class NewsArticle {
     }
 
     private static function getAndSaveArticlesFromApi($category = CATEGORY){
-        // fetch data from API
-        $rawResults = file_get_contents("https://newsapi.org/v1/sources?category=" . $category);
-        $results = json_decode($rawResults);
-
-        // parse to article and save momentarily
         /** @var NewsArticle[] $newsArticles */
         $newsArticles = [];
-        foreach($results->sources as $result){
-            $newsArticles = array_merge($newsArticles, static::getArticlesFromApiSource($result->id, $result->name, $result->url));
+
+        if(strlen($category)) {
+            // fetch data from API
+            $rawResults = file_get_contents("https://newsapi.org/v1/sources?category=" . $category);
+            $results = json_decode($rawResults);
+
+            // parse to article and save momentarily
+            foreach ($results->sources as $result) {
+                $newsArticles = array_merge($newsArticles, static::getArticlesFromApiSource($result->id, $result->name, $result->url));
+            }
+        } else if(strlen(NEWS_API_IDS)) {
+            $ids = explode(",", NEWS_API_IDS);
+            foreach($ids as $id){
+                $id = trim($id);
+                $idParts = explode("|", $id);
+                $sourceId = $idParts[0];
+                $sourceName = $idParts[1];
+                $sourceUrl = $idParts[2];
+                $newsArticles = static::getArticlesFromApiSource($sourceId, $sourceName, $sourceUrl);
+            }
         }
 
         // loop through each item and save to cache
