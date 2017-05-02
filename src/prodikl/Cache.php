@@ -9,6 +9,8 @@ class Cache {
      * @param $article  NewsArticle
      */
     public static function saveArticle($article){
+        if(!strlen($article->urlToImage)) return;
+
         $publishedTime = strtotime($article->publishedAt);
         $folderName = date("Y-m", $publishedTime);
 
