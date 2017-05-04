@@ -16,12 +16,15 @@ class NewsArticle {
      * @return NewsArticle[]
      */
     public static function getArticles(){
+        return static::getArticlesFromCache();
+    }
+
+    public static function fetchAndSaveArticles() {
         if(static::hoursSinceLastUpdate() > 2) {
             if (USE_NEWS_API) static::getAndSaveArticlesFromApi();
             if (USE_XML_FEEDS) static::getAndSaveArticlesFromXmlFeeds();
             static::updateLastUpdatedTime();
         }
-        return static::getArticlesFromCache();
     }
 
     /**
