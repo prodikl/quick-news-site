@@ -1,0 +1,47 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "6ace217cadef3e728981c3094d545c47",
+    "packages": [
+        {
+            "name": "prodikl/simple-view",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/prodikl/simple-view.git",
+                "reference": "2171f4c69b32d60bac3ba908770acd21eb57b65e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/prodikl/simple-view/zipball/2171f4c69b32d60bac3ba908770acd21eb57b65e",
+                "reference": "2171f4c69b32d60bac3ba908770acd21eb57b65e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "prodikl\\": "src/prodikl/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "A simple to use, basic View object.",
+            "time": "2017-04-16T21:28:59+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.0"
+    },
+    "platform-dev": []
+}

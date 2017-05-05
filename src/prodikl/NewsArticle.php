@@ -21,9 +21,9 @@ class NewsArticle {
 
     public static function fetchAndSaveArticles() {
         if(static::hoursSinceLastUpdate() > 2) {
+            static::updateLastUpdatedTime();
             if (USE_NEWS_API) static::getAndSaveArticlesFromApi();
             if (USE_XML_FEEDS) static::getAndSaveArticlesFromXmlFeeds();
-            static::updateLastUpdatedTime();
         }
     }
 
