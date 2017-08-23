@@ -25,15 +25,28 @@ define("GOOGLE_ANALYTICS", "
     </script>
 ");
 define("GOOGLE_ADSENSE", '
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- techworld.today - header -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
-             data-ad-client="ca-pub-6908363659501977"
-             data-ad-slot="6958762048"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+    <script type="text/javascript">
+    sa_client = "33e8e5ae48377489183beb2c52cdc810";
+    sa_code = "039f5e94e15a712b1583a1d532231122";
+    sa_protocol = ("https:"==document.location.protocol)?"https":"http";
+    sa_pline = "0";
+    sa_maxads = "4";
+    sa_bgcolor = "FFFFFF";
+    sa_bordercolor = "FFFFFF";
+    sa_superbordercolor = "E3E3E3";
+    sa_linkcolor = "FF0000";
+    sa_desccolor = "000000";
+    sa_urlcolor = "CA0000";
+    sa_b = "0";
+    sa_format = "column_160x600";
+    sa_width = "160";
+    sa_height = "600";
+    sa_location = "0";
+    sa_radius = "0";
+    sa_borderwidth = "1";
+    sa_font = "0";
+    </script>
+    <script type="text/javascript" src="//sa.entireweb.com/sense2.js"></script>
 ');
 
 // NEWS API settings
